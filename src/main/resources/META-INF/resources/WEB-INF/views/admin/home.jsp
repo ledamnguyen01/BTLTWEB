@@ -10,9 +10,12 @@
 <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pb-3 mb-4 border-bottom">
     <div>
         <h3 class="fw-bold text-dark mb-1">
-            <i class="bi bi-speedometer2 text-primary"></i> Bảng Điều Khiển Quản Trị (Admin Dashboard)
+            <i class="bi bi-speedometer2 text-primary"></i> Bảng Điều Khiển Quản Trị
         </h3>
-        <p class="text-muted mb-0">Xin chào <strong>${sessionScope.account.fullname}</strong> (@${sessionScope.account.username}) — Vai trò: <span class="badge bg-warning text-dark">${sessionScope.account.role}</span></p>
+        <p class="text-muted mb-0">
+            Xin chào <strong>${sessionScope.account.fullname}</strong> (@${sessionScope.account.username})
+            — Vai trò: <span class="badge bg-warning text-dark">${sessionScope.account.role}</span>
+        </p>
     </div>
     <a href="${pageContext.request.contextPath}/home" class="btn btn-outline-primary btn-sm fw-semibold">
         <i class="bi bi-house-door"></i> Xem trang người dùng
@@ -53,7 +56,7 @@
                     <i class="bi bi-shield-lock-fill fs-3"></i>
                 </div>
                 <div>
-                    <div class="text-muted small fw-semibold text-uppercase">Bảo mật phiên</div>
+                    <div class="text-muted small fw-semibold text-uppercase">Trạng thái phiên</div>
                     <div class="fs-5 fw-bold text-success text-nowrap">Đã xác thực Admin</div>
                 </div>
             </div>
@@ -61,21 +64,38 @@
     </div>
 </div>
 
-<div id="moc2" class="card border-0 shadow-sm bg-white">
-    <div class="card-header bg-white py-3 border-bottom">
-        <h5 class="mb-0 fw-bold"><i class="bi bi-list-check text-primary me-2"></i> Tiến độ bài tập Spring Boot 4</h5>
+<div class="card border-0 shadow-sm bg-white">
+    <div class="card-header bg-white py-3 border-bottom d-flex justify-content-between align-items-center">
+        <h5 class="mb-0 fw-bold"><i class="bi bi-clock-history text-primary me-2"></i> Danh mục mới cập nhật</h5>
+        <span class="text-muted small">5 bản ghi gần nhất</span>
     </div>
-    <div class="card-body p-4">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                <span><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Mốc 1:</strong> Spring Boot 4 + JSP/JSTL + SiteMesh 3 + UTF-8 + Đăng ký / Đăng nhập / Đăng xuất &amp; Phân quyền Admin</span>
-                <span class="badge bg-success">Hoàn thành</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                <span><i class="bi bi-hourglass-split text-warning me-2"></i> <strong>Mốc 2:</strong> Admin CRUD + Tìm kiếm &amp; Phân trang bảng <code>Category</code> và bảng <code>User</code></span>
-                <span class="badge bg-warning text-dark">Tiếp theo (hạn 30/11)</span>
-            </li>
-        </ul>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4" style="width: 90px;">Mã</th>
+                        <th>Tên danh mục</th>
+                        <th style="width: 180px;">Hình ảnh</th>
+                        <th class="text-center" style="width: 150px;">Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${recentCategories}" var="cate">
+                        <tr>
+                            <td class="ps-4 fw-semibold">#${cate.id}</td>
+                            <td class="fw-semibold text-dark">${cate.name}</td>
+                            <td class="text-muted small"><code>${cate.images}</code></td>
+                            <td class="text-center">
+                                <span class="badge ${cate.status == 1 ? 'bg-success-subtle text-success' : 'bg-secondary-subtle text-secondary'}">
+                                    ${cate.status == 1 ? 'Hoạt động' : 'Tạm ẩn'}
+                                </span>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 </body>

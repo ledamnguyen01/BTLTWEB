@@ -33,7 +33,7 @@
 
 ## 3. Hướng dẫn chạy dự án
 
-1. Đảm bảo SQL Server đang chạy tại `localhost:1433` và có database `SpringBoot4_WebMVC`.
+1. Mở SQL Server Management Studio và chạy file `database.sql` để tạo database `SpringBoot4_WebMVC` (các bảng và dữ liệu mẫu sẽ tự khởi tạo khi chạy ứng dụng).
 2. Chạy ứng dụng:
    ```bash
    mvn spring-boot:run

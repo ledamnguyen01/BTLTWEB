@@ -1,5 +1,7 @@
 package vn.iotstar.controller;
 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,8 @@ public class AdminHomeController {
     public String dashboard(Model model) {
         model.addAttribute("totalCategories", categoryService.count());
         model.addAttribute("totalUsers", userService.count());
+        model.addAttribute("recentCategories",
+                categoryService.findAll(PageRequest.of(0, 5, Sort.by("id").descending())).getContent());
         return "admin/home";
     }
 }

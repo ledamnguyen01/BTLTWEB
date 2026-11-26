@@ -94,10 +94,6 @@
                     </button>
                 </form>
 
-                <div class="alert alert-light border mt-3 mb-0 py-2 px-3 small text-muted">
-                    <strong>Tài khoản demo:</strong> <code>admin</code> / <code>123456</code> (Admin) &bull; <code>user</code> / <code>123456</code> (User)
-                </div>
-
                 <div class="text-center mt-3 pt-3 border-top">
                     <span>Chưa có tài khoản? </span>
                     <a href="${pageContext.request.contextPath}/register" class="fw-bold text-decoration-none">Đăng ký ngay</a>

@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import vn.iotstar.config.AuthInterceptor;
 import vn.iotstar.entity.User;
 import vn.iotstar.service.UserService;
+import vn.iotstar.util.RememberMeUtil;
 
 @Controller
 public class AuthController {
@@ -83,7 +84,7 @@ public class AuthController {
         session.setAttribute(AuthInterceptor.SESSION_ACCOUNT, user);
 
         if ("on".equalsIgnoreCase(remember) || "true".equalsIgnoreCase(remember)) {
-            Cookie cookie = new Cookie(AuthInterceptor.COOKIE_REMEMBER, user.getUsername());
+            Cookie cookie = new Cookie(AuthInterceptor.COOKIE_REMEMBER, RememberMeUtil.createToken(user.getUsername()));
             cookie.setMaxAge(7 * 24 * 60 * 60); // 7 ngày
             cookie.setPath("/");
             cookie.setHttpOnly(true);

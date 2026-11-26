@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import vn.iotstar.entity.User;
 import vn.iotstar.service.UserService;
+import vn.iotstar.util.RememberMeUtil;
 
 @Component
 public class AuthInterceptor implements HandlerInterceptor {
@@ -27,16 +28,19 @@ public class AuthInterceptor implements HandlerInterceptor {
         HttpSession session = request.getSession(false);
         User account = (session != null) ? (User) session.getAttribute(SESSION_ACCOUNT) : null;
 
-        // Tự động khôi phục phiên từ Remember Me cookie nếu chưa có session
+        // Tự động khôi phục phiên từ Remember Me cookie đã ký HMAC-SHA256
         if (account == null) {
             Cookie[] cookies = request.getCookies();
             if (cookies != null) {
                 for (Cookie c : cookies) {
                     if (COOKIE_REMEMBER.equals(c.getName()) && c.getValue() != null && !c.getValue().isBlank()) {
-                        Optional<User> opt = userService.findByUsername(c.getValue().trim());
-                        if (opt.isPresent() && Integer.valueOf(1).equals(opt.get().getStatus())) {
-                            account = opt.get();
-                            request.getSession(true).setAttribute(SESSION_ACCOUNT, account);
+                        String verifiedUsername = RememberMeUtil.verifyAndExtractUsername(c.getValue().trim());
+                        if (verifiedUsername != null) {
+                            Optional<User> opt = userService.findByUsername(verifiedUsername);
+                            if (opt.isPresent() && Integer.valueOf(1).equals(opt.get().getStatus())) {
+                                account = opt.get();
+                                request.getSession(true).setAttribute(SESSION_ACCOUNT, account);
+                            }
                         }
                         break;
                     }

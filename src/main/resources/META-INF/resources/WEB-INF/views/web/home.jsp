@@ -29,15 +29,11 @@
         <div class="card-body p-4 p-lg-5">
             <div class="row align-items-center g-4">
                 <div class="col-lg-8">
-                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 mb-3">
-                        <i class="bi bi-stars"></i> Spring Boot 4.0 &bull; JSP/JSTL &bull; SiteMesh 3 &bull; SQL Server
-                    </span>
                     <h2 class="fw-bold text-dark mb-2">
                         Hệ thống Quản lý Danh mục &amp; Người dùng
                     </h2>
                     <p class="text-muted mb-4">
-                        Bài tập Lập trình Web — Giảng viên: <strong>ThS. Nguyễn Hữu Trung</strong> (HCMUTE).
-                        Hỗ trợ Đăng ký, Đăng nhập (BCrypt + Remember Me), Đăng xuất, phân quyền Session Interceptor và quản trị Admin.
+                        Khám phá các danh mục sản phẩm công nghệ và quản lý tài khoản trực tuyến với giao diện hiện đại, bảo mật mật khẩu bằng BCrypt và phân quyền quản trị viên rõ ràng.
                     </p>
                     <div class="d-flex flex-wrap gap-2">
                         <c:choose>
