@@ -12,6 +12,9 @@ public interface UserService {
     boolean existsByUsername(String username);
     boolean existsByEmail(String email);
     boolean existsByPhone(String phone);
+    boolean existsByUsernameAndIdNot(String username, Long id);
+    boolean existsByEmailAndIdNot(String email, Long id);
+    boolean existsByPhoneAndIdNot(String phone, Long id);
     User register(String username, String rawPassword, String email, String fullname, String phone);
     Optional<User> authenticate(String usernameOrEmail, String rawPassword);
     User save(User user);
