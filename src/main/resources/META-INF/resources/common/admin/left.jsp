@@ -10,12 +10,12 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link py-2 px-3 d-flex align-items-center text-nowrap" href="${pageContext.request.contextPath}/admin/home#recent-categories">
+                <a class="nav-link py-2 px-3 d-flex align-items-center text-nowrap" href="${pageContext.request.contextPath}/admin/categories/searchpaginated">
                     <i class="bi bi-folder2-open text-success me-2"></i> Quản lý danh mục
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link py-2 px-3 d-flex align-items-center text-nowrap" href="${pageContext.request.contextPath}/admin/home">
+                <a class="nav-link py-2 px-3 d-flex align-items-center text-nowrap" href="${pageContext.request.contextPath}/admin/users/searchpaginated">
                     <i class="bi bi-people-fill text-info me-2"></i> Quản lý người dùng
                 </a>
             </li>

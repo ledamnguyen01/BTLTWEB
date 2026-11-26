@@ -26,10 +26,10 @@
     <div class="col-md-4">
         <div class="card border-0 shadow-sm bg-white h-100">
             <div class="card-body d-flex align-items-center gap-3 p-4">
-                <div class="rounded-circle bg-success-subtle text-success d-flex align-items-center justify-content-center" style="width: 56px; height: 56px;">
+                <div class="rounded-circle bg-success-subtle text-success d-flex align-items-center justify-content-center flex-shrink-0" style="width: 56px; height: 56px;">
                     <i class="bi bi-folder2-open fs-3"></i>
                 </div>
-                <div>
+                <div class="min-w-0">
                     <div class="text-muted small fw-semibold text-uppercase">Tổng Danh mục</div>
                     <div class="fs-2 fw-bold text-dark">${totalCategories}</div>
                 </div>
@@ -39,10 +39,10 @@
     <div class="col-md-4">
         <div class="card border-0 shadow-sm bg-white h-100">
             <div class="card-body d-flex align-items-center gap-3 p-4">
-                <div class="rounded-circle bg-info-subtle text-info d-flex align-items-center justify-content-center" style="width: 56px; height: 56px;">
+                <div class="rounded-circle bg-info-subtle text-info d-flex align-items-center justify-content-center flex-shrink-0" style="width: 56px; height: 56px;">
                     <i class="bi bi-people-fill fs-3"></i>
                 </div>
-                <div>
+                <div class="min-w-0">
                     <div class="text-muted small fw-semibold text-uppercase">Tổng Người dùng</div>
                     <div class="fs-2 fw-bold text-dark">${totalUsers}</div>
                 </div>
@@ -52,12 +52,12 @@
     <div class="col-md-4">
         <div class="card border-0 shadow-sm bg-white h-100">
             <div class="card-body d-flex align-items-center gap-3 p-4">
-                <div class="rounded-circle bg-primary-subtle text-primary d-flex align-items-center justify-content-center" style="width: 56px; height: 56px;">
+                <div class="rounded-circle bg-primary-subtle text-primary d-flex align-items-center justify-content-center flex-shrink-0" style="width: 56px; height: 56px;">
                     <i class="bi bi-shield-lock-fill fs-3"></i>
                 </div>
-                <div>
+                <div class="min-w-0">
                     <div class="text-muted small fw-semibold text-uppercase">Trạng thái phiên</div>
-                    <div class="fs-5 fw-bold text-success text-nowrap">Đã xác thực Admin</div>
+                    <div class="fs-6 fw-bold text-success">Đã xác thực Admin</div>
                 </div>
             </div>
         </div>
