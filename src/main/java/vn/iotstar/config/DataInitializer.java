@@ -29,6 +29,7 @@ public class DataInitializer implements CommandLineRunner {
             admin.setEmail("admin@hcmute.edu.vn");
             admin.setFullname("Quản Trị Viên");
             admin.setPhone("0901234567");
+            admin.setImages("admin.png");
             admin.setRole("ADMIN");
             admin.setStatus(1);
 
@@ -38,6 +39,7 @@ public class DataInitializer implements CommandLineRunner {
             user.setEmail("user@hcmute.edu.vn");
             user.setFullname("Lê Đàm Nguyên");
             user.setPhone("0989574059");
+            user.setImages("user.png");
             user.setRole("USER");
             user.setStatus(1);
 

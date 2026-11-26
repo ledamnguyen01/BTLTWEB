@@ -109,10 +109,20 @@
                 <div class="card h-100 border-0 shadow-sm hover-lift bg-white">
                     <div class="card-body p-3 d-flex flex-column justify-content-between">
                         <div class="d-flex align-items-center gap-3 mb-2">
-                            <div class="rounded-3 bg-primary-subtle text-primary d-flex align-items-center justify-content-center flex-shrink-0"
-                                 style="width: 48px; height: 48px;">
-                                <i class="bi bi-tag-fill fs-4"></i>
-                            </div>
+                            <c:choose>
+                                <c:when test="${not empty cate.images}">
+                                    <img src="${pageContext.request.contextPath}/uploads/${cate.images}"
+                                         alt="${cate.name}"
+                                         class="rounded-3 flex-shrink-0 shadow-sm"
+                                         style="width: 52px; height: 52px; object-fit: cover;">
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="rounded-3 bg-primary-subtle text-primary d-flex align-items-center justify-content-center flex-shrink-0"
+                                         style="width: 52px; height: 52px;">
+                                        <i class="bi bi-tag-fill fs-4"></i>
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
                             <div>
                                 <h6 class="fw-bold mb-1" style="line-height: 1.35;" title="${cate.name}">${cate.name}</h6>
                                 <span class="badge ${cate.status == 1 ? 'bg-success-subtle text-success' : 'bg-secondary-subtle text-secondary'}">

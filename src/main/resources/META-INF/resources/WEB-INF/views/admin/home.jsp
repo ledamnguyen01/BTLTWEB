@@ -85,7 +85,19 @@
                         <tr>
                             <td class="ps-4 fw-semibold">#${cate.id}</td>
                             <td class="fw-semibold text-dark">${cate.name}</td>
-                            <td class="text-muted small"><code>${cate.images}</code></td>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${not empty cate.images}">
+                                        <img src="${pageContext.request.contextPath}/uploads/${cate.images}"
+                                             alt="${cate.name}"
+                                             class="rounded-2 border shadow-sm"
+                                             style="width: 40px; height: 40px; object-fit: cover;">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="text-muted small">—</span>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
                             <td class="text-center">
                                 <span class="badge ${cate.status == 1 ? 'bg-success-subtle text-success' : 'bg-secondary-subtle text-secondary'}">
                                     ${cate.status == 1 ? 'Hoạt động' : 'Tạm ẩn'}
